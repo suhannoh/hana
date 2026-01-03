@@ -1,0 +1,13 @@
+.article {
+  padding: 1rem;
+}
+.article:hover {
+  cursor: pointer;
+  background: var(--primary);
+  color: var(--bg);
+  transition: all 0.3s ease-in-out;
+}
+.article img{
+  width: 15rem;
+  height: 15rem;
+}
