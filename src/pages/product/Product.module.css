@@ -18,6 +18,7 @@
   cursor: pointer;
 }
 .items {
+  padding: 1rem;
   width: 100%;
   height: max-content;
   display: grid;
@@ -45,10 +46,11 @@
 
 @media (max-width: 560px) {
 .list {
-  gap: 0;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 .list li {
-  font-size: 12px;
-  padding: 0.4rem;
+  font-size: 16px;
+  padding: 0.8rem;
 }
 }

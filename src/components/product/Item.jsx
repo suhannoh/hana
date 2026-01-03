@@ -6,10 +6,16 @@ export default function Item({ product }) {
   const navigate = useNavigate();
   
   return (
+    <>
     <article className={styles.item} onClick={() => navigate(`/product/${product.category}/${product.id}` , {state : product})}>
-      <img src={`../../${product.img}`} alt="" />
+      <img src={product.img} alt="" />
       <p>{product.title}</p>
       <p>{product.engTitle}</p>
+
+      {/* <div className={styles.detail}>
+        <p>go to detail</p>
+      </div> */}
     </article>
+    </>
   )
 }

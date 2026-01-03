@@ -7,7 +7,7 @@ export default function MainProductTitle({ product , product2=null }) {
   return (
     <article className={styles.article} onClick={() => navigate(`/product/${product.category}` , {state : product})}>
         <img src={product.img} alt="" />
-        <p>{product.title}</p><p>{product.engTitle}</p>
+        <p>{product.title}</p><p className={styles.eng}>{product.engTitle}</p>
     </article>
 
   )

@@ -11,3 +11,16 @@
   width: 15rem;
   height: 15rem;
 }
+.article p {
+  font-size: 16px;
+}
+.eng {
+  font-size: 14px;
+  opacity: 0.7;
+}
+@media (max-width: 767px) {
+.article img{
+  width: 160px;
+  height: 160px;
+}
+}

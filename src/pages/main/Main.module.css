@@ -73,7 +73,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 5rem;
+  gap: 3rem;
 }
 
 
@@ -88,6 +88,10 @@
 }
 
 @media (max-width: 767px) {
+.product_list {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap : 0;
+}
 .video_content {
   margin-left: 10%;
 }
@@ -97,8 +101,12 @@
 .video_content p {
   font-size: 0.8rem;
 }
-  .video_wrapper iframe {
+.video_wrapper iframe {
     width: 220%;
     height: 220%;
   }
+.product_list {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
 }

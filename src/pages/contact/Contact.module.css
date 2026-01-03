@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem;
+}
+.content {
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+.title {
+  font-size: 4rem;
+}
+.text {
+  opacity: 0.8;
+}
