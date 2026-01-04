@@ -11,6 +11,8 @@ export default function Contact() {
   const [email , setEmail] = useState('');
   const [message , setMessage] = useState('');
 
+  const PHONE_REGEX = /^010-\d{4}-\d{4}$/;
+
   useEffect (() => {
     const setting = () => {
       if (state) {
@@ -20,14 +22,45 @@ export default function Contact() {
     setting();
   }, [state]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!company) {
+      alert("please enter your company name");
+      return;
+    }
+    if (!name) {
+      alert("please enter your name");
+      return;
+    }
+    if (!email) {
+      alert("please enter your email");
+      return;
+    }
+    if (!PHONE_REGEX.test(phone)) {
+      alert("please enter your phone number");
+      return;
+    }
+    if (!message) {
+      alert("please enter your message");
+      return;
+    }
+
+    const request = {
+      category : !contactCategory ? null : contactCategory,
+      name : name,
+      phone : phone,
+      company : company,
+      email : email,
+      message : message
+    }
+    alert("BACKEND REQUEST DATA \n" + JSON.stringify(request) + "\n전달 데이터 확인");
+  }
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>여러분의 문의를 기다리고 있습니다</h1>
-      <form>
-        <div className={styles.contact_wrapper}> 
-          <input type="text" name="contactCategory" id="contactCategory" value={contactCategory} placeholder=' ' onChange={(e) => setContactCategory(e.target.value)} />
-          <label htmlFor='contactCategory'> 문의 카테고리 <span className={styles.desc}></span> <span style={{color : 'red'}}> *</span> </label>
-        </div>
+      <form id='contactForm' onSubmit={handleSubmit}>
+        {contactCategory ? <p className={styles.contact_title}> Contact event : {contactCategory} <span className={styles.desc}>{state.engTitle}</span></p> : null}
         <div className={styles.contact_line}>
           <div className={styles.contact_wrapper}>
           <input type="text" name="company" id="company" value={company} placeholder=' ' onChange={(e) => setCompany(e.target.value)} />
@@ -51,19 +84,20 @@ export default function Contact() {
         </div>
         <div className={styles.contact_wrapper}>
           <textarea name="message" id="message" value={message} cols="30" rows="10" onChange={(e) => setMessage(e.target.value)} placeholder=" "></textarea>
-          <label htmlFor='message'>문의내용</label>
+          <label htmlFor='message'>문의내용을 입력해주세요. </label>
+          <button type="submit" form="contactForm" >Send</button>
         </div>
-        <button type="submit">Send</button>
       </form>
-      <p className={styles.text}>준비중</p>
-      {state && 
-      <div className={styles.content}>
-        <h1>Product Detail 통해 넘어온 data </h1>
-        <h3>Category : {state.category}</h3>
-        <p>Title : {state.title}</p>
-        <p>subTitle : {state.engTitle}</p>
-        <p>Description : {state.description}</p>
-      </div>}
+      <div className={styles.bar}></div>
+      <div className={styles.title_wrapper}>
+        <h1 className={styles.title}>여러분의 문의를 기다리고 있습니다</h1>
+        <div className={styles.title_desc_wrapper}>
+          <p className={styles.title_desc}> 문의 사항이나 협업 제안이 있으신가요? </p>
+          <p> 정보를 남겨주시면 담당자가 검토 후 신속하게 연락드리겠습니다. </p> 
+        </div>
+
+        
+      </div>
     </div>
   )
 }

@@ -1,8 +1,10 @@
 import MainProductTitle from './MainProductTitle'
 import styles from './Main.module.css'
 import pumpList from '../../store/pump'
+import CardSlider from '../../components/CardSlider';
 export default function Main() {
   const mainProduct = pumpList.filter(product => product.main === true);
+
   return (
     <div className={styles.container}>
       <section className={styles.video_section}>
@@ -32,6 +34,8 @@ export default function Main() {
             return <MainProductTitle key={item.id} product={item} />
           })}
         </div>
+          <h1 style={{padding: "1rem"}} > Slider </h1>
+          <CardSlider items={pumpList} />  
       </section>
       <section>
         {/* 섹션 3 */}

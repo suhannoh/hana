@@ -1,12 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Theme from './Theme';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setActive(pathname.split("/")[1] || "home");
+  }, [pathname]);
+  
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -18,35 +24,35 @@ export default function Header() {
                 e.stopPropagation();
                 setOpen(v => !v);
               }}
-            >
+          >
             ☰
           </button>
           {open && (
             <div className={styles.dropdown}>
               <a className={active === "home" ? styles.active : ""}
-                onClick={() => { 
-                navigate('/');
-                setOpen(false);
-                setActive("home");
-              }}>Home</a>
+                onClick={() => {
+                  navigate('/');
+                  setOpen(false);
+                  setActive("home");
+                }}>Home</a>
               <a className={active === "product" ? styles.active : ""}
-                onClick={() => { 
-                setActive("product");
-                navigate('/product');
-                setOpen(false);
-              }}>Product</a>
-              <a  className={active === "company" ? styles.active : ""}
-                onClick={() => { 
-                navigate('/about');
-                setOpen(false);
-                setActive("company");
-              }}>About</a>
-              <a  className={active === "contact" ? styles.active : ""}
-                onClick={() => { 
-                navigate('/contact');
-                setOpen(false);
-                setActive("contact");
-              }}>Contact</a>
+                onClick={() => {
+                  setActive("product");
+                  navigate('/product');
+                  setOpen(false);
+                }}>Product</a>
+              <a className={active === "company" ? styles.active : ""}
+                onClick={() => {
+                  navigate('/about');
+                  setOpen(false);
+                  setActive("company");
+                }}>About</a>
+              <a className={active === "contact" ? styles.active : ""}
+                onClick={() => {
+                  navigate('/contact');
+                  setOpen(false);
+                  setActive("contact");
+                }}>Contact</a>
             </div>)}
         </h1>
         <nav className={styles.nav}>

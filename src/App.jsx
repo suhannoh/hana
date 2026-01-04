@@ -7,12 +7,14 @@ import Product from './pages/product/Product'
 import ProductDetail from './pages/product/ProductDetail'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
+import ScrollToTop from './components/product/ScrollToTop'
 
 function App() {
 
   return (
     <>
       <Layout>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/product/' element={<Product />} />

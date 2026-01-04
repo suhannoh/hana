@@ -74,6 +74,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 3rem;
+  border-bottom: 1px solid var(--border);
 }
 
 
@@ -91,6 +92,10 @@
 .product_list {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap : 0;
+}
+.video_section {
+  height: 100svh;
+  min-height: 100vh;
 }
 .video_content {
   margin-left: 10%;

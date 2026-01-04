@@ -1,30 +1,59 @@
 .container {
   width: 100%;
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 3rem;
+  gap: 3rem;
+  padding: 0 2rem;
 }
 .content {
   border: 1px solid var(--border);
   padding: 1rem;
 }
+.title_wrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.title_desc_wrapper {
+  width: 100%;
+  padding-left: 2rem;
+}
+.title_desc {
+  margin: 0;
+}
 .title {
-  font-size: 4rem;
+  padding-left: 2rem;
+  font-size: 3rem;
+  margin: 0;
 }
 .desc {
   font-size: 12px;
   opacity: 0.8;
 }
+.select {
+  border-bottom: 1px solid var(--primary);
+}
+.bar {
+  width: 1px;
+  height: 100vh;
+  background: var(--border);
+}
+.contact_title{
+  margin: 0;
+}
 .container form {
-  width: 70%;
+  flex: 1;
   height: 100%;
   display: flex;  
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 1rem;
 }
@@ -34,6 +63,7 @@
   outline: none;
 }
 .container input {
+  color: var(--text);
   background-color: var(--bg);
   border: none;
   border-bottom: 1px solid var(--border);
@@ -43,6 +73,9 @@
   font-size: 1.2rem;
 }
 .container textarea {
+  max-width: 100%;
+  background: var(--bg);
+  color: var(--text);
   border: 1px solid var(--border);
   padding: 1rem;
   margin: 1rem 0;
@@ -60,6 +93,7 @@
   height: max-content;
   position: relative;
   margin-top: 1rem;
+  display: flex;
 }
 .contact_wrapper input{
   width: max-content;
@@ -68,6 +102,10 @@
   border-bottom: 1px solid var(--text);
   transition: 1s;
   outline: none;
+}
+.contact_wrapper textarea {
+  resize: none;
+  font-size: 14px;
 }
 .contact_wrapper label{
   transition: 0.2s;
@@ -78,7 +116,24 @@
   pointer-events: auto; /* 클릭 가능 */
   cursor: text;
 }
-
+.contact_wrapper textarea ~ label{
+  left: 20px;
+  top: 20%; 
+  transform: translateY(-10%);
+  opacity: 0.7;
+}
+.contact_wrapper button {
+  position: absolute;
+  width: 4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  bottom: 30px;
+  right: 12px;
+}
 
 .contact_wrapper  input:focus ~ label,
 .contact_wrapper  input:not(:placeholder-shown) ~ label,
@@ -90,4 +145,57 @@
 }
 .contact_wrapper  input:focus {
   border-bottom: 1px solid var(--primary);
+}
+
+@media (max-width: 1230px) {
+.container {
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+}
+.title_wrapper {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+.title_wrapper .title {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.title_desc_wrapper {
+  padding: 0;
+}
+.title_desc_wrapper p{
+  margin: 0;
+
+}
+.title_wrapper p {
+  margin: 0;
+  margin: 0 auto;
+  width: max-content;
+  font-size: 12px;
+}
+.bar {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+}
+
+@media (max-width: 767px) {
+.title_wrapper .title {
+  padding: 0;
+  width: 100%;
+
+  font-size: 1.3rem;
+}
+.contact_line {
+  flex-direction: column;
+}
+.title_desc {
+  margin: 0;
+}
+
 }
