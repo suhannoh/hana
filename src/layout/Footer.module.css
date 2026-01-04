@@ -36,6 +36,7 @@
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
+  gap: 1rem;
 }
 .sns__list {
   display: flex;

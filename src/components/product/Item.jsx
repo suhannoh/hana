@@ -12,9 +12,6 @@ export default function Item({ product }) {
       <p>{product.title}</p>
       <p>{product.engTitle}</p>
 
-      {/* <div className={styles.detail}>
-        <p>go to detail</p>
-      </div> */}
     </article>
     </>
   )

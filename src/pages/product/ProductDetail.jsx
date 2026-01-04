@@ -16,7 +16,8 @@ export default function ProductDetail() {
         <div className={styles.content}>
           <p className={styles.title}>{product.title} <span>({product.engTitle})</span></p>
           <span className={styles.bar}></span>
-          <p>{product.description}</p>
+          {product.description ? <p>{product.description}</p> : <p> 제품 상세설명 들어갈 자리 </p>}
+         
           <button onClick={() => {
             navigate('/contact' , {state : product});
           }}>Contact</button>
